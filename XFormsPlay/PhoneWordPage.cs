@@ -1,11 +1,15 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.Collections.Generic;
 
 namespace XFormsPlay
 {
 	public class PhoneWordPage : ContentPage
 	{
 		private Entry txtPhoneNumber;
+		private Button btnCallHistory;
+		private List<string> callHistory = new List<string>();
+
 		public PhoneWordPage ()
 		{
 			this.Title = "Phone Word";
@@ -24,9 +28,15 @@ namespace XFormsPlay
 
 			Button btnCall = new Button() {
 				Text = "Call",
-				IsEnabled = false,
-				HorizontalOptions = LayoutOptions.Fill,
-				VerticalOptions = LayoutOptions.Start
+				IsEnabled = false
+			};
+
+			btnCallHistory = new Button () {
+				Text = "Call History",
+				IsEnabled = false
+			};
+			btnCallHistory.Clicked += async (sender, e) => {
+				await this.Navigation.PushAsync(new CallHistoryPage(callHistory));
 			};
 
 
@@ -48,6 +58,7 @@ namespace XFormsPlay
 			stackLayout.Children.Add(label);
 			stackLayout.Children.Add(txtPhoneNumber);
 			stackLayout.Children.Add(btnCall);
+			stackLayout.Children.Add (btnCallHistory);
 
 			Content = stackLayout;
 		}
@@ -58,7 +69,11 @@ namespace XFormsPlay
 				"Dial a number", "Would you like to call " + legitPhone.Number, 
 				"Yes", "No")) {
 				IDialer dialer = DependencyService.Get<IDialer> ();
-				dialer.call (legitPhone.Number);
+				if (dialer != null) {
+					btnCallHistory.IsEnabled = true;
+					callHistory.Add (legitPhone.Number);
+					dialer.call (legitPhone.Number);
+				}
 			}
 		}
 	}

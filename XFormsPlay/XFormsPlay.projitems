@@ -13,5 +13,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)IDialer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PhoneNumber.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PhoneWordPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CallHistoryPage.cs" />
   </ItemGroup>
 </Project>
