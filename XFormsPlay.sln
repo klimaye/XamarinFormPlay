@@ -53,6 +53,6 @@ Global
 		{9E1C3025-B43F-442D-A540-F8D0A85FD58E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Android\XFormsPlay.Android.csproj
+		StartupItem = iOS\XFormsPlay.iOS.csproj
 	EndGlobalSection
 EndGlobal

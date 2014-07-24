@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="PhoneDialer.cs" />
   </ItemGroup>
   <Import Project="..\XFormsPlay\XFormsPlay.projitems" Label="Shared" Condition="Exists('..\XFormsPlay\XFormsPlay.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

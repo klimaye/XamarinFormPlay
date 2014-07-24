@@ -21,6 +21,8 @@ namespace XFormsPlay.Android
 
 			Xamarin.Forms.Forms.Init (this, bundle);
 
+			PhoneDialer.ApplicationContext = this.ApplicationContext;
+
 			SetPage (App.GetMainPage ());
 		}
 	}
